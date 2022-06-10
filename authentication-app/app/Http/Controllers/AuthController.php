@@ -7,19 +7,42 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+/** @OA\Info(title="Authentication API", version="0.1") */
 class AuthController extends Controller
 {
-    //
-     /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
         $this->middleware('auth:api', ['only' => ['me']]);
     }
+
+    /**
+    * @OA\Get(
+
+    *  path="/api/me",
+
+    *  summary="validates jwt token with private claim data",
+
+    *  @OA\Parameter(name="email",
+
+    *    in="query",
+
+    *    required=true,
+
+    *    @OA\Schema(type="string")
+
+    *  ),
+
+    *  @OA\Response(response="200",
+
+    *    description="Validation Response",
+
+    *  )
+
+    * )
+
+    */
+
 
     public function me() {
         return response()->json(auth()->user());

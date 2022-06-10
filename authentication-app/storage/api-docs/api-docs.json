@@ -1,0 +1,30 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Authentication API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/me": {
+            "get": {
+                "summary": "validates jwt token with private claim data",
+                "operationId": "9d9bc556f927575aa492a88c28fe5908",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Validation Response"
+                    }
+                }
+            }
+        }
+    }
+}
