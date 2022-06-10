@@ -1,9 +1,9 @@
 const axios = require('axios')
-const { response } = require('../..')
 
 exports.isLogin = async (req, res, next) => {
     try {
         const token = req.headers.authorization
+
         const { data } = await axios({
             url: 'http://localhost:8000/api/me',
             method: 'get',

@@ -28,7 +28,6 @@ exports.aggregate = async (req, res) => {
     let output = parseData(toBeConverted, rate)
 
     let aggregateData = aggregate(output, groupBy)
-    console.log("🚀 ~ file: fetch.js ~ line 31 ~ exports.aggregate= ~ aggregateData", aggregateData)
 
     return res.status(200).json({ message: 'success fetch data', data: aggregateData })
 
