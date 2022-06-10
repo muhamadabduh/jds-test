@@ -14,4 +14,15 @@ exports.convert = async (req, res) => {
     return res.status(200).json({ message: 'success fetch data', data: output })
 }
 
+exports.aggregate = async (req, res) => {
+    const { data } = await axios({
+        url: 'https://60c18de74f7e880017dbfd51.mockapi.io/api/v1/jabar-digital-services/product',
+        method: 'GET'
+    });
+
+}
+
+exports.me = (req, res) => {
+    return res.status(200).json(req.user)
+}
 

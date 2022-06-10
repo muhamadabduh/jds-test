@@ -1,12 +1,13 @@
 const express = require('express')
-const { convert } = require('../app/handler/fetch')
+const { convert, me } = require('../app/handler/fetch')
 const asyncHandler = require('express-async-handler')
 const { body, validationResult, header } = require('express-validator');
-const { isLogin } = require('../app/middlewares/auth')
+const { isLogin, isAdmin } = require('../app/middlewares/auth')
 
 const router = express.Router()
 
-router.get('/api/convert', header('authorization'), isLogin, asyncHandler(convert))
-
+router.get('/api/convert', header('authorization'), asyncHandler(isLogin), asyncHandler(convert))
+router.get('/api/aggregate', header('authorization'), asyncHandler(isLogin), asyncHandler(isAdmin))
+router.get('/api/me', header('authorization'), asyncHandler(isLogin), me)
 
 module.exports = router
