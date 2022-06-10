@@ -19,7 +19,7 @@ To start the server you can run the artisan command : ```php artisan serve```. T
 #### Preparing Database
   Make the new database for the application and then configure the .env file. make sure you fill the variables: DB_PORT, DB_CONNECTION,DB_HOST, DB_USERNAME,DB_PASSWORD, and DB_DATABASE according to your system
   
- ### Fetch App
+ ### 2. Fetch App
  requirements: 
  - Nodejs & npm (preferred LTS version)
  ```bash
