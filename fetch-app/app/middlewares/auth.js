@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { response } = require('../..')
 
 exports.isLogin = async (req, res, next) => {
     try {
@@ -24,4 +25,11 @@ exports.isLogin = async (req, res, next) => {
     } catch (error) {
         return res.status(400).json({ error: 'unauthorized' })
     }
+}
+
+exports.isAdmin = async (req, res, next) => {
+    if (!req.user.role === 'admin') {
+        return res.status(401).json({ messaage: 'unauthorized' })
+    }
+    next()
 }
